@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 3:</h1>
+    <p>Take the input as the number of rows and display a diamond pattern like below.</p>
+    Enter a number: <input type="num" id="num">
+    <button id="btn" onclick="apl()">Submit</button>
+    <p id="this"></p> 
+    <script>
+        function apl() {
+            let num = parseInt(document.getElementById("num").value);
+            document.getElementById("this").innerHTML = '';
+
+            for (let i = 1; i <= num; i++) {
+                // upper half
+                let stars = '';
+                for (let j = 1; j <= 2 * i - 1; j++) {
+                    stars += 'x';
+                }
+                document.getElementById("this").innerHTML += stars + '<br>';
+            }
+
+            for (let i = num - 1; i >= 1; i--) {
+                // lower half
+                let stars = '';
+                for (let j = 1; j <= 2 * i - 1; j++) {
+                    stars += 'x';
+                }
+                document.getElementById("this").innerHTML += stars + '<br>';
+            }
+        }
+    </script>
+</body>
+</html>
