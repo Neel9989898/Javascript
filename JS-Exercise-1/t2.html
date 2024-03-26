@@ -3,13 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Task 2</title>
 </head>
 <body>
     <h1>Task 2:</h1>
     <p>Take input as the number of rows from the user, and display the pattern accordingly.</p>
     Enter a number: <input type="num" id="num">
-    <button id="btn">Submit</button>
-    <p id="this"></p> 
+    <button id="btn" onclick="myFunction()">Submit</button><br>
+    <textarea wrap="soft" id="output" height="200px"></textarea>
+    <script>
+        function myFunction(){
+            var x = document.getElementById("num").value;
+            var outputDiv = document.getElementById("output");
+            let result = "";
+            for (let i = 0; i < x; i++) {
+                if (i === 0 || i === x - 1) {
+                    result += '*'.repeat(x) + '\n';
+                } else {
+                    result += '*'.repeat(1) + ' '.repeat(x - 2) + '*' + '\n';
+                }
+            }
+            outputDiv.innerHTML = "Pattern:\n" + result;
+
+        }
+    </script>
 </body>
 </html>
