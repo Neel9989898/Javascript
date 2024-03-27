@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+</head>
+<body>
+    <h1>Task 2:</h1>
+    <p>Take input as the number of rows from the user, and display the pattern accordingly.</p>
+    Enter a number: <input type="num" id="num">
+    <button id="btn" onclick="myFunction()">Submit</button><br><br>
+    <textarea wrap="soft" id="output" height="200px" rows="19" cols="70">Pattern:
+        *  *  *  *  *  *  * 
+        *                 *
+        *                 *
+        *                 *
+        *                 *
+        *                 *
+        *  *  *  *  *  *  * 
+       </textarea>
+    <script>
+        function myFunction(){
+            var x = document.getElementById("num").value;
+            var outputDiv = document.getElementById("output");
+            let result = "";
+            for (let i = 0; i < x; i++) {
+                if (i === 0 || i === x - 1) {
+                    result += ' * '.repeat(x) + '\n';
+                } else {
+                    result += ' *'.repeat(1) + ' '.repeat((2*(x-2))+ (x-1)) + ' *' + '\n';
+                }
+            }
+            outputDiv.innerHTML = "Pattern:\n" + result;
+
+        }
+    </script>
+</body>
+</html>
