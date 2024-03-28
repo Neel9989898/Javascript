@@ -10,15 +10,16 @@ let result = '';
 // }
 
 // console.log(result);
+const size = 6; // Define the size of the cross
 
-for(let i=0 ; i<num ;i++) {
-    for(let j=0; j<i;j++) {
-        if(num%2==0){
-            if(i==j){
-                result+=X
-            }
+for (let i = 0; i < size; i++) {
+    let row = '';
+    for (let j = 0; j < size; j++) {
+        if (i === j || i + j === size - 1) {
+            row += 'x';
+        } else {
+            row += ' ';
         }
     }
+    console.log(row);
 }
-
-console.log(result)

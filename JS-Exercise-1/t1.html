@@ -3,39 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
-        document.getElementById('btn').addEventListener('click', () => {
-            const num = document.getElementById('num').value;
-            let result = '';
-            if (num % 2 === 0) {
-                // Even number of rows
-                for (let i = 0; i < num; i++) {
-                    if (i === 0 || i === num - 1) {
-                        result += 'X'.repeat(num) + '\n';
-                    } else {
-                        result += 'X'.repeat(1) + ' '.repeat(num - 2) + 'X' + '\n';
-                    }
-                }
-            } else {
-                // Odd number of rows
-                for (let i = 0; i < num; i++) {
-                    if (i === 0 || i === num - 1) {
-                        result += 'X'.repeat(num) + '\n';
-                    } else {
-                        result += ' '.repeat(1) + 'X'.repeat(num - 2) + 'X' + '\n';
-                    }
-                }
-            }
-            document.getElementById('this').innerText = result;
-        });
-    </script>
+    <title>Task 1</title>
 </head>
 <body>
     <h1>Task 1:</h1>
-    <p>Below patterns depend on the input, i.e. the number of rows is odd or even</p>
-    Enter a number: <input type="num" id="num">
-    <button id="btn">Submit</button>
-    <pre id="this">2</pre>
+    <p>Below patterns depend on the input, i.e. the number of rows is odd or even.</p>
+    Enter a number: <input type="number" id="num">
+    <button id="btn" onclick="myFunction()">Submit</button><br><br>
+    <textarea wrap="soft" id="output" height="200px" rows="19" cols="70">Pattern:
+        x   x       x    x
+         x x         x  x 
+          x           xx
+         x x          xx        
+        x   x        x  x 
+                    x    x
+       </textarea>
+    <script>
+        function myFunction(){
+            var x = document.getElementById("num").value;
+            var outputDiv = document.getElementById("output");
+            let result = "";
+            let size= parseInt(x);
+            for (let i = 0; i < size; i++) {
+                let row = '';
+                for (let j = 0; j < size; j++) {
+                    if (i === j || i + j === size - 1) {
+                        row += 'x';
+                    } else {
+                        row += ' ';
+                    }
+                }
+                result+=row + "\n";;
+            }
+
+
+            outputDiv.innerHTML = "Pattern:\n" + result;
+
+        }
+    </script>
 </body>
 </html>
