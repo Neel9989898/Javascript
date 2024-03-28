@@ -3,13 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Task 4</title>
 </head>
 <body>
     <h1>Task 4:</h1>
-    <p>Below pattern only accepts odd number as number of rows.</p>
-    Enter a number: <input type="num" id="num">
-    <button id="btn">Submit</button>
-    <p id="this"></p> 
+    <p>elow pattern only accepts odd number as number of rows</p>
+    Enter a number: <input type="number" id="num">
+    <button id="btn" onclick="myFunction()">Submit</button><br><br>
+    <textarea wrap="soft" id="output" rows="19" cols="70">Pattern:
+        *
+        * * *
+        * * * * *
+        * * *
+        *
+    </textarea>
+
+    
+    
+    <script>
+        function myFunction(){
+            var x = document.getElementById("num").value;
+            var outputDiv = document.getElementById("output");
+            let result = "";
+            if (x % 2 === 0) { 
+                x++;
+            }
+            const midRow = Math.floor(x / 2);
+            for (let i = 0; i < x; i++) {
+                let row = '';
+                for (let j = 0; j < x; j++) {
+                    if (i <= midRow) {
+                        if (j >= midRow - i && j <= midRow + i) {
+                            row += ' *';
+                        } else {
+                            row += '  ';
+                        }
+                    } else {
+                        if (j >= i - midRow && j <= x - 1 - (i - midRow)) {
+                            row += ' *';
+                        } else {
+                            row += '  ';
+                        }
+                    }
+                }
+                result += row.trim() + '\n';
+            }
+            outputDiv.value = "Pattern:\n" + result;
+
+        }
+    </script>
 </body>
 </html>
