@@ -1,4 +1,4 @@
-let num = 5;
+let size = 5;
 let result = '';
 
 // for (let i = 0; i < num; i++) {
@@ -10,16 +10,30 @@ let result = '';
 // }
 
 // console.log(result);
-const size = 6; // Define the size of the cross
+// const size = 6; // Define the size of the cross
+
+// for (let i = 0; i < size; i++) {
+//     let row = '';
+//     for (let j = 0; j < size; j++) {
+//         if (i === j || i + j === size - 1) {
+//             row += 'x';
+//         } else {
+//             row += ' ';
+//         }
+//     }
+//     console.log(row);
+// }
 
 for (let i = 0; i < size; i++) {
     let row = '';
     for (let j = 0; j < size; j++) {
         if (i === j || i + j === size - 1) {
-            row += 'x';
+            row += j+1;
         } else {
             row += ' ';
         }
     }
-    console.log(row);
+    result+=row + "\n";;
 }
+
+console.log(result)
