@@ -3,36 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Task 3</title>
 </head>
 <body>
     <h1>Task 3:</h1>
     <p>Take the input as the number of rows and display a diamond pattern like below.</p>
-    Enter a number: <input type="num" id="num">
-    <button id="btn" onclick="apl()">Submit</button>
-    <p id="this"></p> 
+    Enter a number: <input type="number" id="num">
+    <button id="btn" onclick="myFunction()">Submit</button><br><br>
+    <textarea wrap="soft" id="output" rows="19" cols="70">Pattern:
+            x
+          x   x
+        x       x        
+          x   x
+            x    
+                        
+                       
+                    
+    </textarea> 
     <script>
-        function apl() {
-            let num = parseInt(document.getElementById("num").value);
-            document.getElementById("this").innerHTML = '';
-
-            for (let i = 1; i <= num; i++) {
-                // upper half
-                let stars = '';
-                for (let j = 1; j <= 2 * i - 1; j++) {
-                    stars += 'x';
-                }
-                document.getElementById("this").innerHTML += stars + '<br>';
+        function myFunction(){
+            var x = document.getElementById("num").value;
+            var outputDiv = document.getElementById("output");
+            let result = "";
+            if (x % 2 === 0) { 
+                x++;
             }
-
-            for (let i = num - 1; i >= 1; i--) {
-                // lower half
-                let stars = '';
-                for (let j = 1; j <= 2 * i - 1; j++) {
-                    stars += 'x';
+            const midRow = Math.floor(x / 2);
+            for (let i = 0; i < x; i++) {
+                let row = '';
+                for (let j = 0; j < x; j++) {
+                    if (i <= midRow) {
+                        if (j >= midRow - i && j <= midRow + i) {
+                            row += ' *';
+                        } else {
+                            row += '  ';
+                        }
+                    } else {
+                        if (j >= i - midRow && j <= x - 1 - (i - midRow)) {
+                            row += ' *';
+                        } else {
+                            row += '  ';
+                        }
+                    }
                 }
-                document.getElementById("this").innerHTML += stars + '<br>';
+                result += row.trim() + '\n';
             }
+            outputDiv.value = "Pattern:\n" + result;
+
         }
     </script>
 </body>

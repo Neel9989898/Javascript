@@ -3,40 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 1</title>
+    <title>Task 5</title>
 </head>
 <body>
-    <h1>Task 1:</h1>
-    <p>Below patterns depend on the input, i.e. the number of rows is odd or even.</p>
+    <h1>Task 5:</h1>
+    <p>Task 1 but numbers inside.</p>
     Enter a number: <input type="number" id="num">
     <button id="btn" onclick="myFunction()">Submit</button><br><br>
     <textarea wrap="soft" id="output" height="200px" rows="19" cols="70">Pattern:
-        x   x       x    x
-         x x         x  x 
-          x           xx
-         x x          xx        
-        x   x        x  x 
-                    x    x
+        12345
+         234 
+          3  
+         234 
+        12345
        </textarea>
     <script>
         function myFunction(){
             var x = document.getElementById("num").value;
             var outputDiv = document.getElementById("output");
             let result = "";
-            let size= parseInt(x);
+            let size = parseInt(x);
             for (let i = 0; i < size; i++) {
                 let row = '';
                 for (let j = 0; j < size; j++) {
-                    if (i === j || i + j === size - 1) {
-                        row += "X";
+                    if (i === Math.floor(size / 2)) {
+                        row += j + 1;
                     } else {
-                        row += ' ';
+                        if (j >= Math.abs(i - Math.floor(size / 2)) && j < size - Math.abs(i - Math.floor(size / 2))) {
+                            row += j + 1;
+                        } else {
+                            row += ' ';
+                        }
                     }
                 }
-                result+=row + "\n";;
+                result += row + '\n';
             }
-
-
             outputDiv.innerHTML = "Pattern:\n" + result;
 
         }
