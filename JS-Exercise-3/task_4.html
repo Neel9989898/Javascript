@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Generator</title>
+</head>
+<body>
+    <div id="tableContainer"></div>
+    <script>
+        function createTable(rows, columns) {
+            const table = document.createElement('table');
+        
+            for (let i = 0; i < rows; i++) {
+                const row = table.insertRow();
+                table.border="2";
+            
+                for (let j = 0; j < columns; j++) {
+                    const cell = row.insertCell();
+                    cell.textContent = `Row-${i} Column-${j}`;
+                }
+            }
+
+            return table;
+        }
+
+const rows = parseInt(prompt("Enter the number of rows:"));
+const columns = parseInt(prompt("Enter the number of columns:"));
+
+const tableContainer = document.getElementById('tableContainer');
+tableContainer.appendChild(createTable(rows, columns));
+
+    </script>
+</body>
+</html>
