@@ -1,7 +1,23 @@
+h2{
+    width: auto;
+    text-align: center;
+}
+
 #stopwatch {
     font-size: 2em;
+    text-align: center;
 }
 
 #stopwatchDisplay {
     font-weight: bold;
+}
+
+#realTime{
+    display:inline;
+}
+
+#currentDate{
+display:inline;
+float:right;
+width: auto;
 }
