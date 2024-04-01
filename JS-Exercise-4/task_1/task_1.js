@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const hours = now.getHours().toString().padStart(2, '0');
         const minutes = now.getMinutes().toString().padStart(2, '0');
         const seconds = now.getSeconds().toString().padStart(2, '0');
-        realTimeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+        const milliseconds = now.getMilliseconds().toString.padStart(4,'0');
+        realTimeDisplay.textContent = `${hours}:${minutes}:${seconds}:${milliseconds}`;
 
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         const day = now.getDate().toString().padStart(2, '0');
@@ -28,7 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const hours = Math.floor(stopwatchTime / 3600).toString().padStart(2, '0');
         const minutes = Math.floor((stopwatchTime % 3600) / 60).toString().padStart(2, '0');
         const seconds = (stopwatchTime % 60).toString().padStart(2, '0');
-        stopwatchDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+        const milliseconds = (stopwatchTime % 1000).toString().padStart(4, '0');
+        stopwatchDisplay.textContent = `${hours}:${minutes}:${seconds}:${milliseconds}`;
     }
 
     function startStopwatch() {
