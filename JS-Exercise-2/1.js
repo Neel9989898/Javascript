@@ -16,10 +16,4 @@ function getFirstAndLast(array, n) {
 console.log(getFirstAndLast(array, 3))
 
 
-//write a program to find the most frequent item of an array.
-const hep=[0,1,1,2,3,4,5,5,5,6,7,7,8,9]
-let fcount;
-for(let i of hep){
-    fcount[i]=(fcount[i]||0)+1;
-    console.log(fcount[i]);
-}
+
