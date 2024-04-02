@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Four Boxes</title>
+  <style>
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        height: 10;
+    }
+
+    .boxu {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        margin: 10px;
+    }
+
+    .boxd {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        margin: 10px;
+    }
+
+
+
+    #box1, #box3 {
+      background-color: #ccc;
+  
+    }
+
+    #box2, #box4 {
+      background-color: #fff;
+    }
+  </style>
+  <script>
+    alert("page loaded");
+    window.onload = function() {
+      var box1 = document.getElementById("box1");
+      box1.innerText = "click me first";
+
+      var box2 = document.getElementById("box2");
+      setInterval(function() {
+        var colors = ["red", "green", "blue", "yellow", "orange", "purple"];
+        var index = Math.floor(Math.random() * colors.length);
+        box2.style.backgroundColor = colors[index];
+      }, 3000);
+
+      box1.onclick = function() {
+        var box3 = document.getElementById("box3");
+        box3.innerText = "Oops something wrong?";
+
+        var box4 = document.getElementById("box4");
+        setInterval(function() {
+          var colors = ["red", "green", "blue", "yellow", "orange", "purple"];
+          var index = Math.floor(Math.random() * colors.length);
+          box4.style.backgroundColor = colors[index];
+        }, 5000);
+      }
+
+      window.onkeydown = function(e) {
+        var box4 = document.getElementById("box4");
+        var colors = ["red", "green", "blue", "yellow", "orange", "purple"];
+        var currentIndex = colors.indexOf(box4.style.backgroundColor);
+        var newIndex;
+
+        if (e.keyCode == 39 || e.keyCode == 38) { // Right or Up arrow
+          newIndex = (currentIndex + 1) % colors.length;
+        } else if (e.keyCode == 37 || e.keyCode == 40) { // Left or Down arrow
+          newIndex = (currentIndex - 1 + colors.length) % colors.length;
+        }
+
+        box4.style.backgroundColor = colors[newIndex];
+      }
+    }
+    
+  </script>
+</head>
+<body>
+  <div class="container">
+  <div id="box3" class="boxu"></div>
+  <div id="box1" class="boxu"></div>
+  </div>
+  <div class="container">
+  <div id="box2" class="boxd"></div>
+  <div id="box4" class="boxd"></div>
+  </div>
+  <div></div>
+</body>
+</html>
